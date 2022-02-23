@@ -11,3 +11,5 @@ jobs:
         run: |
           echo "Hello World!"
           echo "Hi!!"
+      - name: show time
+        run: date
