@@ -20,3 +20,6 @@ jobs:
         run: npm run test
       - name: build
         run: npm run build
+      - name: build from script
+        run: ./.github/scripts/build.sh
+        shell: bash
