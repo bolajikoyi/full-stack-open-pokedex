@@ -20,6 +20,6 @@ jobs:
           # heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "pipeline--practice" #Must be unique in Heroku
           heroku_email: "omobolaji.koyi@yahoo.com"
-          healthcheck: "https://pipeline--practice.herokuapp.com/health"
-          checkstring: "ok"
-          rollbackonhealthcheckfailed: true
+          # healthcheck: "https://pipeline--practice.herokuapp.com/health"
+          # checkstring: "ok"
+          # rollbackonhealthcheckfailed: true
