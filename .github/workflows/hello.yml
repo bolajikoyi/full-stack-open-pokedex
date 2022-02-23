@@ -14,4 +14,4 @@ jobs:
       - name: show time
         run: date
       - name: directory container
-        run: ls
+        run: ls -l
