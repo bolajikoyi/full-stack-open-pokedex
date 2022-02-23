@@ -11,5 +11,3 @@ jobs:
         run: |
           echo "Hello World!"
           echo "Hi!!"
-      - name: Install dependencies
-        run: npm install
