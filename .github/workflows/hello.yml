@@ -13,3 +13,5 @@ jobs:
           echo "Hi!!"
       - name: show time
         run: date
+      - name: directory container
+        run: ls
