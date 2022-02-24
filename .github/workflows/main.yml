@@ -6,7 +6,7 @@ on:
       - master # Changing the branch here would also work
   pull_request:
     branches:
-      - master
+      - new-branch
 
 jobs:
   build:
