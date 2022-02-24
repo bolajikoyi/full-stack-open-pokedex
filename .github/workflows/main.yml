@@ -6,7 +6,7 @@ on:
       - master # Changing the branch here would also work
   pull_request:
     branches:
-      - master
+      - new-branch
 
 jobs:
   build:
@@ -30,7 +30,6 @@ jobs:
           healthcheck: "https://pipeline--practice.herokuapp.com/health"
           checkstring: "ok"
           delay: 5
-          # dontuseforce: true
           rollbackonhealthcheckfailed: true
         env:
           HD_FIREBASE_API_KEY: ${{secrets.FIREBASE_API_KEY}}
