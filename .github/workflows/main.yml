@@ -41,6 +41,9 @@ jobs:
         env:
           HD_FIREBASE_API_KEY: ${{secrets.FIREBASE_API_KEY}}
           HD_RANDOM_DATA: "Hello"
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: "0"
       - name: Bump version and push tag
         uses: anothrNick/github-tag-action@1.33.0
         env:
