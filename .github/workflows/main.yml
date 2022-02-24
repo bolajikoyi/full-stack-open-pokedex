@@ -3,15 +3,18 @@ name: Deploy
 on:
   push:
     branches:
-      - master # Changing the branch here would also work
-      - new-branch
+      [master, new-branch]
+      # - master # Changing the branch here would also work
+      # - new-branch
   pull_request:
     branches:
-      - new-branch
-      - master
+      [new-branch, master]
+      # - new-branch
+      # - master
     types:
-      - "opened"
-      - "synchronize"
+      [opened, synchronize]
+      # - "opened"
+      # - "synchronize"
 
 jobs:
   build:
