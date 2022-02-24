@@ -34,7 +34,7 @@ jobs:
           buildpack: "https://github.com/HashNuke/heroku-buildpack-elixir.git"
           healthcheck: "https://pipeline--practice.herokuapp.com/health"
           checkstring: "ok"
-          delay: 5
+          # delay: 5
           rollbackonhealthcheckfailed: true
         env:
           HD_FIREBASE_API_KEY: ${{secrets.FIREBASE_API_KEY}}
