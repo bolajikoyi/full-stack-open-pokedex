@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: "12.x"
+      # - uses: actions/setup-node@v1
+      #   with:
+      #     node-version: "12.x"
       - run: npm install
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
@@ -22,4 +22,4 @@ jobs:
           branch: master
           healthcheck: "https://pipeline--practice.herokuapp.com/health"
           checkstring: "ok"
-          # rollbackonhealthcheckfailed: true
+          rollbackonhealthcheckfailed: true
