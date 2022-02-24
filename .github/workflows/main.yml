@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master # Changing the branch here would also work
+      - new-branch
   pull_request:
     branches:
       - new-branch
