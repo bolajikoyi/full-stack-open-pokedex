@@ -18,13 +18,13 @@ jobs:
           node-version: "12.x"
       - run: npm install
       - run: npm run test
-      # - run: npm run eslint
+      - run: npm run eslint
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "pipeline--practice" #Must be unique in Heroku
           heroku_email: "omobolaji.koyi@yahoo.com"
           branch: master
-          healthcheck: "https://pipeline--practice.herokuapp.com/healt"
+          healthcheck: "https://pipeline--practice.herokuapp.com/health"
           checkstring: "ok"
           rollbackonhealthcheckfailed: true
