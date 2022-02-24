@@ -24,7 +24,13 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "pipeline--practice" #Must be unique in Heroku
           heroku_email: "omobolaji.koyi@yahoo.com"
-          branch: master
+          remote_branch: master
+          buildpack: "https://github.com/HashNuke/heroku-buildpack-elixir.git"
           healthcheck: "https://pipeline--practice.herokuapp.com/health"
           checkstring: "ok"
+          delay: 5
           rollbackonhealthcheckfailed: true
+  hello:
+    runs-on: ubuntu-18.04
+    steps:
+      - run: echo 'Hello'
