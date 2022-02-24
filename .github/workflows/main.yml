@@ -4,12 +4,13 @@ on:
   push:
     branches:
       - master # Changing the branch here would also work
+      - new-branch
   pull_request:
     branches:
       - new-branch
       - master
     types:
-      - "closed"
+      - "opened"
       - "synchronize"
 
 jobs:
@@ -29,7 +30,7 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "pipeline--practice" #Must be unique in Heroku
           heroku_email: "omobolaji.koyi@yahoo.com"
-          branch: master
+          # branch: master
           buildpack: "https://github.com/HashNuke/heroku-buildpack-elixir.git"
           healthcheck: "https://pipeline--practice.herokuapp.com/health"
           checkstring: "ok"
