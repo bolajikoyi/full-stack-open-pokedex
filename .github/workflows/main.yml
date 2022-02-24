@@ -30,6 +30,9 @@ jobs:
           checkstring: "ok"
           delay: 5
           rollbackonhealthcheckfailed: true
+        env:
+          HD_FIREBASE_API_KEY: ${{secrets.FIREBASE_API_KEY}}
+          HD_RANDOM_DATA: "Hello"
   hello:
     runs-on: ubuntu-18.04
     needs: build
