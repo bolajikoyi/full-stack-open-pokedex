@@ -16,8 +16,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-18.04
+    if: ${{ github.event_name == 'push' }} #step will run when there is a push or merge event
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: "0"
       - uses: actions/setup-node@v1
         with:
           node-version: "12.x"
@@ -38,6 +41,15 @@ jobs:
         env:
           HD_FIREBASE_API_KEY: ${{secrets.FIREBASE_API_KEY}}
           HD_RANDOM_DATA: "Hello"
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: "0"
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.33.0
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          WITH_V: true
+          DEFAULT_BUMP: patch
   hello:
     runs-on: ubuntu-18.04
     needs: build
