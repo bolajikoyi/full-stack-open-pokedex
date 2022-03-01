@@ -4,10 +4,10 @@ on:
   push:
     branches:
       - master # Changing the branch here would also work.
-      - new-branch
+      # - new-branch
   pull_request:
     branches:
-      - new-branch
+      # - new-branch
       - master
     types:
       - "opened"
