@@ -28,24 +28,6 @@ jobs:
           npm install
           npm run test
           npm run eslint
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: "0"
-      - name: Bump version and push tag
-        uses: anothrNick/github-tag-action@eca2b69f9e2c24be7decccd0f15fdb1ea5906598
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          WITH_V: true
-          DEFAULT_BUMP: patch
-      - run: echo 'job-build'
-
-  deploy:
-    runs-on: ubuntu-18.04
-    needs: build
-    steps:
-      - uses: actions/setup-node@v1
-        with:
-          node-version: "12.x"
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
@@ -57,13 +39,17 @@ jobs:
           delay: 5
           rollbackonhealthcheckfailed: true
         env:
-          HD_FIREBASE_API_KEY: ${{secrets.FIREBASE_API_KEY}} # just playing around with env variables
+          HD_FIREBASE_API_KEY: ${{secrets.FIREBASE_API_KEY}}
           HD_RANDOM_DATA: "Hello"
-      - run: echo 'job-deploy'
-  context:
-    runs-on: ubuntu-18.04
-    needs: build
-    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: "0"
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@eca2b69f9e2c24be7decccd0f15fdb1ea5906598
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          WITH_V: true
+          DEFAULT_BUMP: patch
       - name: github context
         env:
           GITHUB_CONTEXT: ${{toJSON(github)}}
@@ -76,4 +62,8 @@ jobs:
         env:
           COMMIT_MESSAGES: ${{toJSON(github.event.commits.*.message)}}
         run: "$COMMIT_MESSAGES"
-      - run: echo 'job-context'
+  hello:
+    runs-on: ubuntu-18.04
+    needs: build
+    steps:
+      - run: echo 'Hello'
