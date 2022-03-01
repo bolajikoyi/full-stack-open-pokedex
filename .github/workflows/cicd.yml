@@ -100,6 +100,7 @@ jobs:
           COMMIT_MESSAGES: ${{toJSON(github.event.commits.*.message)}}
         run: echo "$COMMIT_MESSAGES"
   Deploy-on-gh-pages:
+    concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -113,7 +114,9 @@ jobs:
       #       unzip release.zip
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
-      - run: npm run build --if-present
+      - run: |
+          npm ci
+          npm run build --if-present
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
