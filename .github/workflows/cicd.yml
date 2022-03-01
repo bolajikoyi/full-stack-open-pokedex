@@ -54,7 +54,7 @@ jobs:
       - name: unzip artifact for deployment
         run: |
           unzip release.zip
-      - run: git config user.email "USER EMAIL" && git config user.name "USER NAME" && git add -A && git commit -m "Updated code"
+      - run: git config user.email "omobolaji.koyi@yahoo.com" && git config user.name "Omobolaji Koyi" && git add -A && git commit -m "Updated code"
       - name: "Deploy to Heroku WebApp"
         uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
