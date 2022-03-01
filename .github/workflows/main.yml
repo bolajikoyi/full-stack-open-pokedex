@@ -43,6 +43,9 @@ jobs:
     runs-on: ubuntu-18.04
     needs: build
     steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
@@ -59,6 +62,7 @@ jobs:
       - run: echo 'job-deploy'
   context:
     runs-on: ubuntu-18.04
+    needs: build
     steps:
       - name: github context
         env:
