@@ -89,7 +89,7 @@ jobs:
       # - name: unzip artifact for deployment
       #   run: |
       #     unzip release.zip
-      - name: github context
+      - name: "github context"
         env:
           GITHUB_CONTEXT: ${{toJSON(github)}}
         run: echo "$GITHUB_CONTEXT"
