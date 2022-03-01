@@ -66,4 +66,4 @@ jobs:
     runs-on: ubuntu-18.04
     needs: build
     steps:
-      - run: echo 'Hello'
+      - run: echo 'Hello!'
