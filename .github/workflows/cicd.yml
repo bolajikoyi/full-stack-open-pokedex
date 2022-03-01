@@ -5,6 +5,7 @@ on:
     branches:
       - master # Changing the branch here would also work.
       - new-branch
+      - gh-pages
   pull_request:
     branches:
       - new-branch
