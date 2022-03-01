@@ -42,7 +42,7 @@ jobs:
           DEFAULT_BUMP: patch
 
       - name: Zip artifact for deployment
-        run: zip -r release.zip ./*
+        run: zip -r release.zip ./* .env .next
 
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
