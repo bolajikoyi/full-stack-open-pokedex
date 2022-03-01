@@ -54,7 +54,7 @@ jobs:
       - name: unzip artifact for deployment
         run: |
           unzip release.zip
-      - run: git config user.name "Omobolaji Koyi"
+      # - run: git config user.name "Omobolaji Koyi"
       - name: "Deploy to Heroku WebApp"
         uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
