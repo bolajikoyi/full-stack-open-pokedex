@@ -34,6 +34,13 @@ jobs:
           npm run test --if-present
           npm run eslint
 
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@eca2b69f9e2c24be7decccd0f15fdb1ea5906598
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          WITH_V: true
+          DEFAULT_BUMP: patch
+
       - name: Zip artifact for deployment
         run: zip -r release.zip ./*
 
