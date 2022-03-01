@@ -110,6 +110,8 @@ jobs:
         run: |
           unzip release.zip
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+      - run: yarn build
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
