@@ -55,7 +55,6 @@ jobs:
         run: |
           unzip release.zip
 
-      # - uses: actions/checkout@v2
       - name: "Deploy to Heroku WebApp"
         uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
